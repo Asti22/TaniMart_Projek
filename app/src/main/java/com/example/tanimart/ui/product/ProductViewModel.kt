@@ -249,10 +249,9 @@ class ProductViewModel : ViewModel() {
             timestamp = System.currentTimeMillis()
         )
 
-        // Simpan data pesanan baru
         batch.set(orderRef, newOrder)
 
-        // Update stok produk & hapus dari keranjang HANYA untuk item yang terpilih
+
         itemsToCheckout.forEach { item ->
             // Potong stok di koleksi produk global
             val productRef = db.collection("products").document(item.id)
